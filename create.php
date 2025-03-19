@@ -1,3 +1,5 @@
+<?php require_once 'head.php'; ?>
+
 <h2>Nieuwe taak toevoegen</h2>
 <form action="index.php" method="POST">
     Titel: <input type="text" name="title" required><br>

@@ -4,12 +4,22 @@
 <head>
     <title></title>
     <?php require_once 'head.php'; ?>
+    <?php require_once 'header.php' ?>
 </head>
 
-<body>
-    
-    <div class="container">
+<?php $tasks = $_GEt['tasks'] ?>
 
+<body>
+<h2>Takenlijst</h2>
+<table>
+    
+    <tr>
+        <th>Titel</th>
+        <th>Beschrijving</th>
+        <th>Afdeling</th>
+        <th>Status</th>
+        <th>Acties</th>
+    </tr>
 
     <?php foreach ($tasks as $task): ?>
     <tr>
