@@ -5,6 +5,7 @@ $action = $_POST['action'];
 if($action == "create") {
 
     //Variabelen vullen
+    $id = $_POST['id'];
     $titel = $_POST['titel'];
     $Beschrijving = $_POST['Beschrijving'];
     $Afdeling = $_POST['Afdeling'];
@@ -14,16 +15,6 @@ if($action == "create") {
     $created_at = $_POST['created_at'];
 
 
-
-
-    if(isset($_POST['prioriteit']))
-    {
-    $prioriteit = 1;
-    }
-    else
-    {
-    $prioriteit = 0;
-    }
 
 
 

@@ -1,6 +1,6 @@
 <?php
-include 'backend/config.php';
-include 'app/Http/Controllers/takenController.php';
+include '../backend/config.php';
+include '../app/Http/Controllers/takenController.php';
 
 
 //1. Verbinding
