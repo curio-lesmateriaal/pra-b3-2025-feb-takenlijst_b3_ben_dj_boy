@@ -5,16 +5,13 @@ $action = $_POST['action'];
 if($action == "create") {
 
     //Variabelen vullen
-    $id = $_POST['id'];
     $titel = $_POST['titel'];
-    $Beschrijving = $_POST['Beschrijving'];
-    $Afdeling = $_POST['Afdeling'];
+    $beschrijving = $_POST['beschrijving'];
+    $afdeling = $_POST['afdeling'];
     $deadline = $_POST['deadline'];
-    $Status = $_POST['Status'];
+    $Status = $_POST['status'];
     $user = $_POST['user'];
     $created_at = $_POST['created_at'];
-
-
 
 
 
@@ -22,21 +19,22 @@ if($action == "create") {
     require_once '../../../backend/conn.php';
 
     //2. Query
-    $query = "INSERT INTO takenlijst (attractie, capaciteit, melder, type, prioriteit, overige_info) VALUES(:attractie, :capaciteit, :melder, :type, :prioriteit, :overige_info)";
-
+    $query = "INSERT INTO taken (titel, beschrijving, afdeling, deadline, status, user, created_at) VALUES(:titel, :beschrijving, :afdeling, :deadline, :status, :user, :created_at)";
+    
     //3. Prepare
     $statement = $conn->prepare($query);
 
     //4. Execute
     $statement->execute([
-    ":attractie" => $attractie,
-    ":capaciteit" => $capaciteit,
-    ":melder" => $melder,
-    ":type" => $type,
-    ":prioriteit" => $prioriteit,
-    ":overige_info" => $overige_info
+    ":titel" => $titel,
+    ":beschrijving" => $beschrijving,
+    ":afdeling" => $afdeling,
+    ":deadline" => $deadline,
+    ":status" => $status,
+    ":created_at" => $created_at,
+    ":user" => $user
     ]);
-    header("Location: ../../../resources/views/meldingen/index.php?msg=Melding opgeslagen");
+    header("Location: ../../../index.php?msg=Melding opgeslagen");
 }
 
 

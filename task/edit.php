@@ -10,11 +10,11 @@
     <header>
         <h1>Task Manager</h1>
         <nav>
-            <ul>
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="list.php">Takenlijst</a></li>
-                <li><a href="edit.php">Nieuwe taak</a></li>
-            </ul>
+            
+            <a href="../index.php">Home</a>
+            <a href="list.php">Takenlijst</a>
+            <a href="edit.php">Nieuwe taak</a>
+            
         </nav>
     </header>
 <body>
@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <label for="afdeling">afdeling</label>
-                <select name="type">
+                <select name="afdeling">
                     <option value="personeel">Personeel</option>
                     <option value="horeca">Horeca</option>
                     <option value="techniek">Techniek</option>
@@ -48,6 +48,16 @@
             <div class="form-group">
                 <label for="deadline">Deadline:</label>
                 <input type="date" name="deadline" id="deadline" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="created_at">Gemaakt op:</label>
+                <input type="date" name="created_at" id="created_at" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="beschrijving">Beschrijving:</label>
+                <textarea name="beschrijving" rows="6" style="width: 600px;"></textarea>
             </div>
 
             <div class="form-group">
