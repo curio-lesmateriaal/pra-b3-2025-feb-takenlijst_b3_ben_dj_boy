@@ -1,11 +1,10 @@
-<?php require_once 'backend/config.php'; ?>
-
-
 <header>
-    <h1>Welkom bij het Pretpark Taakbeheer</h1>
+    <h1>Task Manager</h1>
     <nav>
-        <a href="index.php">Home</a>
-        <a href="create.php">taak maken
-        </a>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="list.php">Takenlijst</a></li>
+            <li><a href="tasks/create.php">Nieuwe taak</a></li>
+        </ul>
     </nav>
 </header>
