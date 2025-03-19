@@ -3,8 +3,8 @@
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="list.php">Takenlijst</a></li>
-            <li><a href="tasks/create.php">Nieuwe taak</a></li>
+            <li><a href="task/list.php">Takenlijst</a></li>
+            <li><a href="task/edit.php">Nieuwe taak</a></li>
         </ul>
     </nav>
 </header>
