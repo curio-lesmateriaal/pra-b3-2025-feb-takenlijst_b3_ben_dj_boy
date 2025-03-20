@@ -20,10 +20,22 @@ $statement->execute();
 
 //5. fetch
 $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+//2. Query
+$tquery = "SELECT * FROM taken WHERE status = 'Doing'";
+
+//3. Prepare
+$tstatement = $conn->prepare($tquery);
+
+//4. Execute
+$tstatement->execute();
+
+//5. fetch
+$ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
 ?>
     
     <main>
-        <h2>Takenlijst</h2>
+        <h2>To-Do</h2>
         <table>
             <tr>
                 <th>Titel</th>
@@ -40,6 +52,27 @@ $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo $taak['afdeling']; ?></td>
                     <td><?php echo $taak['deadline']; ?></td>
                     <td><?php echo $taak['status']; ?></td>
+                    <td><a href="/task/edit.php"><button>Bewerk</button></a></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+        <h2>Doing</h2>
+        <table>
+            <tr>
+                <th>Titel</th>
+                <th>Beschrijving</th>
+                <th>Afdeling</th>
+                <th>deadline</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            <?php foreach ($ttaken as $ttaak): ?>
+                <tr>
+                    <td><?php echo $ttaak['titel']; ?></td>
+                    <td><?php echo $ttaak['beschrijving']; ?></td>
+                    <td><?php echo $ttaak['afdeling']; ?></td>
+                    <td><?php echo $ttaak['deadline']; ?></td>
+                    <td><?php echo $ttaak['status']; ?></td>
                     <td><a href="/task/edit.php"><button>Bewerk</button></a></td>
                 </tr>
             <?php endforeach; ?>
