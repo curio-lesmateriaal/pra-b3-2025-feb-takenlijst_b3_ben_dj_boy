@@ -52,8 +52,9 @@ $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo $taak['afdeling']; ?></td>
                     <td><?php echo $taak['deadline']; ?></td>
                     <td><?php echo $taak['status']; ?></td>
-                    <td><a href="/task/edit.php"><button>Bewerk</button></a></td>
+                    <td><a href="/task/edit.php?id=<?php echo $taak['id']?>"><button>Bewerk</button></a></td>
                 </tr>
+                
             <?php endforeach; ?>
         </table>
         <h2>Doing</h2>
