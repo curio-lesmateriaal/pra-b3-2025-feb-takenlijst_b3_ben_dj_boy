@@ -1,3 +1,4 @@
+/* Algemene body stijlen */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -5,9 +6,130 @@ body {
   padding: 0;
 }
 
+/* De wrapper zorgt voor het centreren van de content */
+.wrapper {
+  max-width: 100%; /* Beperk de breedte van de content */
+  margin: 0 auto; /* Centreer de wrapper horizontaal */
+}
+
+/* Header styling */
 header {
-  background-color: #0073e6;
+  background: linear-gradient(50deg, #0073e6, #00c6ff); /* Mooie blauwgradiënt */
   color: white;
   padding: 15px;
   text-align: center;
+}
+
+.buttonsNav {
+  background-color: rgb(134, 202, 255);
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Zentert de knoppen */
+  gap: 15px; /* Ruimte tussen de knoppen */
+  border-radius: 10px; /* Mooie afgeronde hoeken */
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); /* Schaduw voor een 3D-effect */
+}
+
+.buttonsNav a {
+  text-decoration: none; /* Verwijdert de onderlijn van de links */
+}
+
+.buttonsNav button {
+  background-color: #0073e6; /* Mooi blauw */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.buttonsNav button:hover {
+  background-color: #005bb5; /* Donkerder blauw bij hover */
+  transform: scale(1.05); /* Kleine zoom in effect */
+}
+
+.ultimateFun {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  background-image: url('/img/dev-land-big.png'); /* Vervang met jouw pad */
+  background-size: contain; /* Zorgt ervoor dat de afbeelding de hele achtergrond bedekt */
+  background-position: center; /* Zentert de afbeelding */
+  background-repeat: no-repeat; /* Voorkomt herhaling */
+  width: auto;
+  background-color: #dceeff;
+  
+}
+
+.ultimateFun h2 {
+  font-size: 36px;
+  text-align: center;
+  color: #fff;
+}
+
+.ultimateFun p {
+  text-align: center;
+}
+
+.welkom {
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000; /* Zwarte kleur */
+  display: block;
+  text-align: center; /* Centreer de "Welkom bij" tekst */
+  margin-bottom: 5px; /* Voeg ruimte onder de "Welkom bij" tekst */
+}
+
+.task-manager {
+  display: block;
+  border-radius: 15px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #000000; /* Geef 'Task Manager' een kleur */
+  text-align: center; /* Centreer de "Task Manager" tekst */
+  margin-top: 10px; /* Voeg meer ruimte toe boven de "Task Manager" tekst */
+}
+
+.Beheer {
+  font-size: 20px;
+}
+
+/* Tabelstijl */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Stijlen voor de tabelkop */
+th {
+  background-color: #0073e6;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+/* Stijlen voor de tabelcellen */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Afwisselende rij-kleuren */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect voor rijen */
+tr:hover {
+  background-color: #e0f0ff;
+  transition: 0.3s;
+}
+
+/* Status kolom in kleur */
+td:last-child {
+  font-weight: bold;
 }

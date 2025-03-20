@@ -1,10 +1,15 @@
-<header>
-    <h1>Task Manager</h1>
-    <nav>
-        
-        <a href="index.php">Home</a>
-        <a href="task/list.php">Takenlijst</a>
-        <a href="task/edit.php">Nieuwe taak</a>
-        
-    </nav>
-</header>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Task Manager</h1>
+            <div class="buttonsNav">
+                <nav>
+
+                    <a href="/index.php"><button>Home</button></a>
+                    <a href="/task/index.php"><button>Taken Lijst</button></a>
+                    <a href="/task/create.php"><button>Nieuwe Taak</button></a>
+
+                </nav>
+            </div>
+
+        </header>
