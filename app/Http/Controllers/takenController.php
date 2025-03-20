@@ -52,6 +52,7 @@ if (isset($_POST['action'])) {
 if ($action == "edit") {
 
     // Variabelen vullen
+    $id = $_POST['id']; 
     $titel = $_POST['titel'];
     $beschrijving = $_POST['beschrijving'];
     $afdeling = $_POST['afdeling'];
@@ -64,28 +65,32 @@ if ($action == "edit") {
     require_once '../../../backend/conn.php';
 
     // 2. Query
-    $query = "UPDATE taken (titel, beschrijving, afdeling, deadline, status, user, created_at) 
-                  VALUES(:titel, :beschrijving, :afdeling, :deadline, :status, :user, :created_at)";
+    $query = "UPDATE taken 
+              SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, 
+                  deadline = :deadline, status = :status, user = :user, created_at = :created_at
+              WHERE id = :id";
 
     // 3. Prepare
     $statement = $conn->prepare($query);
 
     // 4. Execute
     if ($statement->execute([
+        ":id" => $id,
         ":titel" => $titel,
         ":beschrijving" => $beschrijving,
         ":afdeling" => $afdeling,
         ":deadline" => $deadline,
         ":status" => $status,
-        ":created_at" => $created_at,
-        ":user" => $user
+        ":user" => $user,
+        ":created_at" => $created_at
     ])) {
         header("Location: ../../../index.php?msg=Melding opgeslagen");
-        exit;  // Zorg ervoor dat na de header geen verdere code wordt uitgevoerd
+        exit;
     } else {
         echo "Er is een fout opgetreden tijdens het opslaan.";
     }
 }
+
 
 
 if ($action == "delete") {
