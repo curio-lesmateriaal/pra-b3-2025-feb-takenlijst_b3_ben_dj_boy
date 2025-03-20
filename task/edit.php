@@ -97,7 +97,7 @@
 
     <form action="<?php echo $base_url; ?>/app/Http/Controllers/takenController.php" method="POST">
             <input type="hidden" name="action" value="delete">
-            <input type="hidden" name="id" value="<?php echo $meldingen['id']; ?>">
+            <input type="hidden" name="id" value="<?php echo $taken['id']; ?>">
             <input type="submit" value="Verwijderen">
         </form>
 

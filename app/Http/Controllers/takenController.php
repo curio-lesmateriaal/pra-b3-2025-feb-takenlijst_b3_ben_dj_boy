@@ -39,68 +39,13 @@ if (isset($_POST['action'])) {
         } else {
             echo "Er is een fout opgetreden tijdens het opslaan.";
         }
-<<<<<<< HEAD
-    }
-} else {
-    echo "Geen actie gespecificeerd.";
-    exit;
-}
-
-?>
-
-<?php
-
-if ($action == "edit") {
-
-    // Variabelen vullen
-    $id = $_POST['id']; 
-    $titel = $_POST['titel'];
-    $beschrijving = $_POST['beschrijving'];
-    $afdeling = $_POST['afdeling'];
-    $deadline = $_POST['deadline'];
-    $status = $_POST['status'];
-    $user = $_POST['user'];
-    $created_at = $_POST['created_at'];
-
-    // 1. Verbinding
-    require_once '../../../backend/conn.php';
-
-    // 2. Query
-    $query = "UPDATE taken 
-              SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, 
-                  deadline = :deadline, status = :status, user = :user, created_at = :created_at
-              WHERE id = :id";
-
-    // 3. Prepare
-    $statement = $conn->prepare($query);
-
-    // 4. Execute
-    if ($statement->execute([
-        ":id" => $id,
-        ":titel" => $titel,
-        ":beschrijving" => $beschrijving,
-        ":afdeling" => $afdeling,
-        ":deadline" => $deadline,
-        ":status" => $status,
-        ":user" => $user,
-        ":created_at" => $created_at
-    ])) {
-        header("Location: ../../../index.php?msg=Melding opgeslagen");
-        exit;
-=======
         }
->>>>>>> 8d35c5379ab8481aacb1ae677f47d32273f56f81
     } else {
         echo "Geen actie gespecificeerd.";
         exit;
     }
 
 
-<<<<<<< HEAD
-
-if ($action == "delete") {
-=======
->>>>>>> 8d35c5379ab8481aacb1ae677f47d32273f56f81
 
 
     if ($action == "edit") {
@@ -113,13 +58,13 @@ if ($action == "delete") {
         $status = $_POST['status'];
         $user = $_POST['user'];
         $created_at = $_POST['created_at'];
+        $id = $_POST['id'];
 
         // 1. Verbinding
         require_once '../../../backend/conn.php';
 
         // 2. Query
-        $query = "UPDATE taken (titel, beschrijving, afdeling, deadline, status, user, created_at) 
-                    VALUES(:titel, :beschrijving, :afdeling, :deadline, :status, :user, :created_at)";
+        $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, deadline = :deadline, status = :status, created_at = :created_at, user = :user WHERE id = :id";
 
         // 3. Prepare
         $statement = $conn->prepare($query);
@@ -132,7 +77,8 @@ if ($action == "delete") {
             ":deadline" => $deadline,
             ":status" => $status,
             ":created_at" => $created_at,
-            ":user" => $user
+            ":user" => $user,
+            ":id" => $id
         ])) {
             header("Location: ../../../index.php?msg=Melding opgeslagen");
             exit;  // Zorg ervoor dat na de header geen verdere code wordt uitgevoerd
@@ -164,4 +110,4 @@ if ($action == "delete") {
         header("Location: ../../../index.php?msg=Melding is verwijderd!");
         exit;
     }
-?>  
+?>
