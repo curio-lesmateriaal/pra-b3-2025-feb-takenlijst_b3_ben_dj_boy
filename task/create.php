@@ -14,17 +14,21 @@
         <input type="hidden" name="status" value="To-do">
 
         <div class="form-group">
-            <label for="titel">Titel:</label>
+            <label for="titel">Titel: </label>
             <input type="text" name="titel" id="titel" class="form-input">
         </div>
 
         <div class="form-group">
-            <label for="user">Maker:</label>
-            <input type="text" name="user" id="user" class="form-input">
+            <label for="user">Maker: </label>
+            <select name="user">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
         </div>
 
         <div class="form-group">
-            <label for="afdeling">Afdeling:</label>
+            <label for="afdeling">Afdeling: </label>
             <select name="afdeling">
                 <option value="personeel">Personeel</option>
                 <option value="horeca">Horeca</option>
@@ -36,17 +40,17 @@
         </div>
 
         <div class="form-group">
-            <label for="deadline">Deadline:</label>
+            <label for="deadline">Deadline: </label>
             <input type="date" name="deadline" id="deadline" class="form-input">
         </div>
 
         <div class="form-group">
-            <label for="created_at">Gemaakt op:</label>
+            <label for="created_at">Gemaakt op: </label>
             <input type="date" name="created_at" id="created_at" class="form-input">
         </div>
 
         <div class="form-group">
-            <label for="beschrijving">Beschrijving:</label>
+            <label for="beschrijving">Beschrijving: </label>
             <textarea name="beschrijving" rows="6" style="width: 600px;"></textarea>
         </div>
 

@@ -1,6 +1,6 @@
 <footer>
     <div class="container">
-        <p>Alle rechten voorbehouden</p>
+        <p>&copy; Boy Brouwers, Ben Linders, DJ Schraauwen  </p>
     </div>
 </footer>
 </body>
