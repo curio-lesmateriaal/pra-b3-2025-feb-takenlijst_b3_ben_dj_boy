@@ -64,7 +64,7 @@ if($action == "delete") {
     require_once '../../../backend/conn.php';
 
     //2. query
-    $query = "DELETE FROM meldingen WHERE id = :id";
+    $query = "DELETE FROM taken WHERE id = :id";
 
     //3. prepare
     $statement = $conn->prepare($query);
@@ -75,5 +75,6 @@ if($action == "delete") {
     ]);
 
     header("Location: ../../../index.php?msg=Melding is verwijderd!");
+    exit;
 }
 ?>

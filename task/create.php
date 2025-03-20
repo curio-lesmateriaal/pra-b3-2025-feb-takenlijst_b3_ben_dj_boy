@@ -21,9 +21,9 @@
         <div class="form-group">
             <label for="user">Maker: </label>
             <select name="user">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                <option value="1">  1  </option>
+                <option value="2">  2  </option>
+                <option value="3">  3  </option>
             </select>
         </div>
 

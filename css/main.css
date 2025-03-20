@@ -133,3 +133,69 @@ tr:hover {
 td:last-child {
   font-weight: bold;
 }
+
+/* Formulier container */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 97%;
+}
+
+/* Stijl voor labels */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Stijl voor inputvelden en select dropdowns */
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s ease-in-out;
+}
+
+/* Hover en focus effecten voor inputvelden */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #0073e6;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 115, 230, 0.5);
+}
+
+/* Specifieke stijl voor textarea */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Stijl voor de submit-knop */
+input[type="submit"] {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+/* Hover effect op de knop */
+input[type="submit"]:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
+}
