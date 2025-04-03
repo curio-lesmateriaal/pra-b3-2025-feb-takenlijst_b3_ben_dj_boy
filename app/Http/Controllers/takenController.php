@@ -69,7 +69,7 @@ if ($action == "edit") {
               SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, 
                   deadline = :deadline, status = :status, user = :user, created_at = :created_at
               WHERE id = :id";
-
+    
     // 3. Prepare
     $statement = $conn->prepare($query);
 
