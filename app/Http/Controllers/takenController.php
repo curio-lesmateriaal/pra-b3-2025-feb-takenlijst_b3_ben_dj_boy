@@ -59,7 +59,8 @@ if ($action == "edit") {
     $deadline = $_POST['deadline'];
     $status = $_POST['status'];
     $user = $_POST['user'];
-    $created_at = $_POST['created_at'];
+    $created_at = !empty($_POST['created_at']) ? $_POST['created_at'] : date('Y-m-d H:i:s');
+
 
     // 1. Verbinding
     require_once '../../../backend/conn.php';
