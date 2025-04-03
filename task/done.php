@@ -26,7 +26,7 @@ $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
     
     <main>
-        <h2>To-Do</h2>
+        <h2>Done</h2>
         <table>
             <tr>
                 <th>Titel</th>
