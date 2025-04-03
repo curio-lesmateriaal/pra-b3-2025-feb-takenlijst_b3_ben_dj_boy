@@ -12,7 +12,7 @@ if (isset($_POST['action'])) {
         $deadline = $_POST['deadline'];
         $status = $_POST['status'];
         $user = $_POST['user'];
-        $created_at = $_POST['created_at'];
+        $created_at = !empty($_POST['created_at']) ? $_POST['created_at'] : date('Y-m-d H:i:s');
 
         // 1. Verbinding
         require_once '../../../backend/conn.php';
@@ -25,20 +25,18 @@ if (isset($_POST['action'])) {
         $statement = $conn->prepare($query);
 
         // 4. Execute
-        if ($statement->execute([
+        ($statement->execute([
             ":titel" => $titel,
             ":beschrijving" => $beschrijving,
             ":afdeling" => $afdeling,
             ":deadline" => $deadline,
             ":status" => $status,
-            ":created_at" => $created_at,
-            ":user" => $user
-        ])) {
+            ":user" => $user,
+            ":created_at" => $created_at
+        ])); 
             header("Location: ../../../index.php?msg=Melding opgeslagen");
             exit;  // Zorg ervoor dat na de header geen verdere code wordt uitgevoerd
-        } else {
-            echo "Er is een fout opgetreden tijdens het opslaan.";
-        }
+            
     }
 } else {
     echo "Geen actie gespecificeerd.";
@@ -70,7 +68,7 @@ if ($action == "edit") {
               SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, 
                   deadline = :deadline, status = :status, user = :user, created_at = :created_at
               WHERE id = :id";
-    
+
     // 3. Prepare
     $statement = $conn->prepare($query);
 

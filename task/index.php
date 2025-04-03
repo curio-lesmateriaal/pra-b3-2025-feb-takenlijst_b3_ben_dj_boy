@@ -70,7 +70,7 @@ $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo $ttaak['beschrijving']; ?></td>
                     <td><?php echo $ttaak['afdeling']; ?></td>
                     <td><?php echo $ttaak['deadline']; ?></td>
-                    <td><a href="/task/edit.php"><button>Bewerk</button></a></td>
+                    <td><a href="/task/edit.php?id=<?php echo $ttaak['id']?>"><button>Bewerk</button></a></td>
                 </tr>
             <?php endforeach; ?>
         </table>
