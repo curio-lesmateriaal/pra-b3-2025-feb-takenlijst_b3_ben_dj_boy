@@ -10,7 +10,7 @@ require_once '../header.php';
 require_once '../backend/conn.php';
 
 //2. Query
-$query = "SELECT * FROM taken WHERE status = 'To-do'";
+$query = "SELECT * FROM taken WHERE status = 'To-do' ORDER BY deadline ASC";
 
 //3. Prepare
 $statement = $conn->prepare($query);
@@ -22,7 +22,7 @@ $statement->execute();
 $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 //2. Query
-$tquery = "SELECT * FROM taken WHERE status = 'Doing'";
+$tquery = "SELECT * FROM taken WHERE status = 'Doing' ORDER BY deadline ASC";
 
 //3. Prepare
 $tstatement = $conn->prepare($tquery);
