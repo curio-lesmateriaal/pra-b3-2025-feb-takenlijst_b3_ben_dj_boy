@@ -35,7 +35,7 @@ if (isset($_POST['action'])) {
             ":created_at" => $created_at
         ])); 
             header("Location: ../../../index.php?msg=Melding opgeslagen");
-            exit;  // Zorg ervoor dat na de header geen verdere code wordt uitgevoerd
+            exit;
             
     }
 } else {
