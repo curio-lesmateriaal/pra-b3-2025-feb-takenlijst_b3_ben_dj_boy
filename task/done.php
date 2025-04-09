@@ -30,7 +30,6 @@ $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
         <table>
             <tr>
                 <th>Titel</th>
-                <th>Beschrijving</th>
                 <th>Afdeling</th>
                 <th>deadline</th>
                 <th></th>
@@ -38,7 +37,6 @@ $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($taken as $taak): ?>
                 <tr>
                     <td><?php echo $taak['titel']; ?></td>
-                    <td><?php echo $taak['beschrijving']; ?></td>
                     <td><?php echo $taak['afdeling']; ?></td>
                     <td><?php echo $taak['deadline']; ?></td>
                     <td><a href="/task/edit.php?id=<?php echo $taak['id']?>"><button>Bewerk</button></a></td>

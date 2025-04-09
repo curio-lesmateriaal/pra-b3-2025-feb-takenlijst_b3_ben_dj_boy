@@ -39,7 +39,6 @@ $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
         <table>
             <tr>
                 <th>Titel</th>
-                <th>Beschrijving</th>
                 <th>Afdeling</th>
                 <th>deadline</th>
                 <th></th>
@@ -47,7 +46,6 @@ $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($taken as $taak): ?>
                 <tr>
                     <td><?php echo $taak['titel']; ?></td>
-                    <td><?php echo $taak['beschrijving']; ?></td>
                     <td><?php echo $taak['afdeling']; ?></td>
                     <td><?php echo $taak['deadline']; ?></td>
                     <td><a href="/task/edit.php?id=<?php echo $taak['id']?>"><button>Bewerk</button></a></td>
@@ -59,7 +57,6 @@ $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
         <table>
             <tr>
                 <th>Titel</th>
-                <th>Beschrijving</th>
                 <th>Afdeling</th>
                 <th>deadline</th>
                 <th></th>
@@ -67,7 +64,6 @@ $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($ttaken as $ttaak): ?>
                 <tr>
                     <td><?php echo $ttaak['titel']; ?></td>
-                    <td><?php echo $ttaak['beschrijving']; ?></td>
                     <td><?php echo $ttaak['afdeling']; ?></td>
                     <td><?php echo $ttaak['deadline']; ?></td>
                     <td><a href="/task/edit.php?id=<?php echo $ttaak['id']?>"><button>Bewerk</button></a></td>
