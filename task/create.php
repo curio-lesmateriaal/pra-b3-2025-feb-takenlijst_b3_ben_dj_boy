@@ -19,15 +19,6 @@
         </div>
 
         <div class="form-group">
-            <label for="user">Maker: </label>
-            <select name="user">
-                <option value="1">  1  </option>
-                <option value="2">  2  </option>
-                <option value="3">  3  </option>
-            </select>
-        </div>
-
-        <div class="form-group">
             <label for="afdeling">Afdeling: </label>
             <select name="afdeling">
                 <option value="personeel">Personeel</option>
@@ -44,10 +35,6 @@
             <input type="date" name="deadline" id="deadline" class="form-input">
         </div>
 
-        <div class="form-group">
-            <label for="created_at">Gemaakt op: </label>
-            <input type="date" name="created_at" id="created_at" class="form-input">
-        </div>
 
         <div class="form-group">
             <label for="beschrijving">Beschrijving: </label>

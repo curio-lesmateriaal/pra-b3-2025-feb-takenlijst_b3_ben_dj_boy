@@ -11,15 +11,13 @@ if (isset($_POST['action'])) {
         $afdeling = $_POST['afdeling'];
         $deadline = $_POST['deadline'];
         $status = $_POST['status'];
-        $user = $_POST['user'];
-        $created_at = !empty($_POST['created_at']) ? $_POST['created_at'] : date('Y-m-d H:i:s');
 
         // 1. Verbinding
         require_once '../../../backend/conn.php';
 
         // 2. Query
-        $query = "INSERT INTO taken (titel, beschrijving, afdeling, deadline, status, user, created_at) 
-                  VALUES(:titel, :beschrijving, :afdeling, :deadline, :status, :user, :created_at)";
+        $query = "INSERT INTO taken (titel, beschrijving, afdeling, deadline, status) 
+                  VALUES(:titel, :beschrijving, :afdeling, :deadline, :status)";
 
         // 3. Prepare
         $statement = $conn->prepare($query);
@@ -30,9 +28,7 @@ if (isset($_POST['action'])) {
             ":beschrijving" => $beschrijving,
             ":afdeling" => $afdeling,
             ":deadline" => $deadline,
-            ":status" => $status,
-            ":user" => $user,
-            ":created_at" => $created_at
+            ":status" => $status
         ])); 
             header("Location: ../../../index.php?msg=Melding opgeslagen");
             exit;
