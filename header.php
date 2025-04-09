@@ -1,7 +1,10 @@
 <body>
     <div class="wrapper">
         <header>
+            <div class="title">
+            <img src="/img/logo.png" alt="logo">
             <h1>Task Manager</h1>
+            </div>
             <div class="buttonsNav">
                 <nav>
 

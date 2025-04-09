@@ -53,13 +53,12 @@ header {
 .ultimateFun {
   padding-top: 10%;
   padding-bottom: 10%;
-  background-image: url('/img/dev-land-big.png'); /* Vervang met jouw pad */
+  background-image: image('/logo.png'); /* Vervang met jouw pad */
   background-size: contain; /* Zorgt ervoor dat de afbeelding de hele achtergrond bedekt */
-  background-position: center; /* Zentert de afbeelding */
+  background-position: center; /* Centered de afbeelding */
   background-repeat: no-repeat; /* Voorkomt herhaling */
   width: auto;
   background-color: #dceeff;
-  
 }
 
 .ultimateFun h2 {
@@ -198,4 +197,9 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #005bb5;
   transform: scale(1.05);
+}
+
+img{
+  width: 200px;
+  height: 200px;
 }
