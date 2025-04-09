@@ -35,14 +35,6 @@
             <input type="date" name="deadline" id="deadline" class="form-input">
         </div>
 
-<<<<<<< HEAD
-        <div class="form-group">
-            <label for="created_at">Gemaakt op: </label>
-            <input type="date" name="created_at" id="created_at" class="form-input">
-        </div>
-        </div>
-=======
->>>>>>> 675575afa261c4c51c6ac8f0df804e02e658c793
 
         <div class="form-group">
             <label for="beschrijving">Beschrijving: </label>
