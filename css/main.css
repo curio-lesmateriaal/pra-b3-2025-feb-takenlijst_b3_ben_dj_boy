@@ -203,3 +203,7 @@ img{
   width: 200px;
   height: 200px;
 }
+
+.date-input {
+  max-width: 100px;
+}

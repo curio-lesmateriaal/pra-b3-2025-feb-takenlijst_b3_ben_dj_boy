@@ -38,7 +38,7 @@
                 <option value="groen">Groen</option>
             </select>
         </div>
-
+        <div class="date-input">
         <div class="form-group">
             <label for="deadline">Deadline: </label>
             <input type="date" name="deadline" id="deadline" class="form-input">
@@ -47,6 +47,7 @@
         <div class="form-group">
             <label for="created_at">Gemaakt op: </label>
             <input type="date" name="created_at" id="created_at" class="form-input">
+        </div>
         </div>
 
         <div class="form-group">

@@ -43,15 +43,6 @@
             <input type="text" name="titel" id="titel" class="form-input" value="<?php echo $taken['titel']; ?>">
         </div>
 
-        <div class="form-group">
-            <label for="user">Maker: </label>
-            <select name="user">
-                <option value="1" <?php echo ($taken['user'] == "1") ? 'selected' : ''; ?>>1</option>
-                <option value="2" <?php echo ($taken['user'] == "2") ? 'selected' : ''; ?>>2</option>
-                <option value="3" <?php echo ($taken['user'] == "3") ? 'selected' : ''; ?>>3</option>
-            </select>
-        </div>
-
 
         <div class="form-group">
             <label for="afdeling">Afdeling: </label>
@@ -71,10 +62,6 @@
             <input type="date" name="deadline" id="deadline" class="form-input" value="<?php echo $taken['deadline']; ?>">
         </div>
 
-        <div class="form-group">
-            <label for="created_at">Gemaakt op: </label>
-            <input type="date" name="created_at" id="created_at" class="form-input" value="<?php echo $taken['created_at']; ?>">
-        </div>
 
         <div class="form-group">
             <label for="beschrijving">Beschrijving: </label>

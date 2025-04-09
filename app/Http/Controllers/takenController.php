@@ -56,8 +56,6 @@ if ($action == "edit") {
     $afdeling = $_POST['afdeling'];
     $deadline = $_POST['deadline'];
     $status = $_POST['status'];
-    $user = $_POST['user'];
-    $created_at = !empty($_POST['created_at']) ? $_POST['created_at'] : date('Y-m-d H:i:s');
 
 
     // 1. Verbinding
@@ -66,7 +64,7 @@ if ($action == "edit") {
     // 2. Query
     $query = "UPDATE taken 
               SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, 
-                  deadline = :deadline, status = :status, user = :user, created_at = :created_at
+                  deadline = :deadline, status = :status
               WHERE id = :id";
 
     // 3. Prepare
@@ -79,9 +77,7 @@ if ($action == "edit") {
         ":beschrijving" => $beschrijving,
         ":afdeling" => $afdeling,
         ":deadline" => $deadline,
-        ":status" => $status,
-        ":user" => $user,
-        ":created_at" => $created_at
+        ":status" => $status
     ])) {
         header("Location: ../../../index.php?msg=Melding opgeslagen");
         exit;
