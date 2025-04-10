@@ -4,36 +4,88 @@ require_once '../backend/config.php';
 require_once '../head.php';
 
 require_once '../header.php';
-
-
-//1. Verbinding
-require_once '../backend/conn.php';
-
-//2. Query
-$query = "SELECT * FROM taken WHERE status = 'To-do' ORDER BY deadline ASC";
-
-//3. Prepare
-$statement = $conn->prepare($query);
-
-//4. Execute
-$statement->execute();
-
-//5. fetch
-$taken = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-//2. Query
-$tquery = "SELECT * FROM taken WHERE status = 'Doing' ORDER BY deadline ASC";
-
-//3. Prepare
-$tstatement = $conn->prepare($tquery);
-
-//4. Execute
-$tstatement->execute();
-
-//5. fetch
-$ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
 ?>
-    
+
+    <div class="Filter">
+        <form action="<?php echo $base_url; ?>/app/Http/Controllers/takenController.php" method="POST">
+
+        <input type="hidden" name="action" value="filter">
+
+            <label for="filter">Filter: </label>
+            <select name="filter">
+                <option value="">--alles weergeven--</option>
+                <option value="personeel">Personeel</option>
+                <option value="horeca">Horeca</option>
+                <option value="techniek">Techniek</option>
+                <option value="inkoop">Inkoop</option>
+                <option value="klantenservice">Klantenservice</option>
+                <option value="groen">Groen</option>
+            </select>
+            <input type="submit" value="filteren">
+        </form>
+    </div>
+
+<?php
+// filter
+$filter = $_GET['filter'] ?? '';
+
+if (!empty($filter)) {
+    //1. Verbinding
+    require_once '../backend/conn.php';
+
+    //2. Query
+    $query = "SELECT * FROM taken WHERE status = 'To-do' AND afdeling = '$filter' ORDER BY deadline ASC";
+
+    //3. Prepare
+    $statement = $conn->prepare($query);
+
+    //4. Execute
+    $statement->execute();
+
+    //5. fetch
+    $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    //2. Query
+    $tquery = "SELECT * FROM taken WHERE status = 'Doing' AND afdeling = '$filter' ORDER BY deadline ASC";
+
+    //3. Prepare
+    $tstatement = $conn->prepare($tquery);
+
+    //4. Execute
+    $tstatement->execute();
+
+    //5. fetch
+    $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    //1. Verbinding
+    require_once '../backend/conn.php';
+
+    //2. Query
+    $query = "SELECT * FROM taken WHERE status = 'To-do' ORDER BY deadline ASC";
+
+    //3. Prepare
+    $statement = $conn->prepare($query);
+
+    //4. Execute
+    $statement->execute();
+
+    //5. fetch
+    $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    //2. Query
+    $tquery = "SELECT * FROM taken WHERE status = 'Doing' ORDER BY deadline ASC";
+
+    //3. Prepare
+    $tstatement = $conn->prepare($tquery);
+
+    //4. Execute
+    $tstatement->execute();
+
+    //5. fetch
+    $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+?>
     <main>
         <h2>To-Do</h2>
         <table>

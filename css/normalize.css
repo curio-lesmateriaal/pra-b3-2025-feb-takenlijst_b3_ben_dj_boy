@@ -38,8 +38,13 @@ main {
  */
 
 h1 {
+  color: white;
   font-size: 2em;
   margin: 0.67em 0;
+}
+
+h2 {
+  color: white;
 }
 
 /* Grouping content

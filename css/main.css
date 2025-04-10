@@ -115,6 +115,8 @@ th {
 td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
+  color: black;
+  text-align: left;
 }
 
 /* Afwisselende rij-kleuren */
@@ -206,4 +208,8 @@ img{
 
 .date-input {
   max-width: 100px;
+}
+
+p {
+  color: black;
 }
