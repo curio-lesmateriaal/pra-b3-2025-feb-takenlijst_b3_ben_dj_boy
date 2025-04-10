@@ -10,7 +10,7 @@ require_once '../header.php';
 require_once '../backend/conn.php';
 
 //2. Query
-$query = "SELECT * FROM taken WHERE status = 'Done'";
+$query = "SELECT * FROM taken WHERE status = 'Done' ORDER BY deadline ASC";
 
 //3. Prepare
 $statement = $conn->prepare($query);
