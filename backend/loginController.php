@@ -35,11 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user_name'] = $user['name']; // Zorg dat de kolom 'name' bestaat
 
     // 8. Redirect naar de hoofdpagina
-    header("Location: ../logs/index.php");
+    header("Location: ../index.php");
     exit;
 
 } else {
     // Als je deze pagina probeert te openen zonder POST, terugsturen
-    header("Location: ../login.php");
+    header("Location: ../login/login.php");
     exit;
 }

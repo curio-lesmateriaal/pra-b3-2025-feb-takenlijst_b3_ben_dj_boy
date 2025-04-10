@@ -10,20 +10,20 @@
 
 <body>
 
-<?php require_once '../header.php'; ?>
+    <?php require_once '../header.php'; ?>
 
-    
+
     <div class="container">
 
         <h1>takenController/ Inloggen</h1>
         <?php
-        if(isset($_GET['msg']))
-        {
+        if (isset($_GET['msg'])) {
             echo "<div class='msg'>" . $_GET['msg'] . "</div>";
         }
         ?>
 
-        <form action="backend/loginController.php" method="POST">
+        <form action="../backend/loginController.php" method="POST">
+
             <div class="form-group">
                 <label for="username">Gebruikersnaam:</label>
                 <input type="text" name="username" id="username" placeholder="user1">
