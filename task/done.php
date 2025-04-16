@@ -13,9 +13,8 @@ require_once '../head.php';
 
 require_once '../header.php';
 
-  if (isset($_SESSION['user_id'])) {
-    $user_id = intval($_SESSION['user_id']); // veilig integer maken 
-
+if (isset($_SESSION['user_id'])) {
+    $user_id = intval($_SESSION['user_id']); // veilig integer maken
 
     //1. Verbinding
     require_once '../backend/conn.php';
@@ -29,7 +28,7 @@ require_once '../header.php';
     //4. Execute
     $statement->execute();
 
-    //5. fetch
+    //5. Fetch
     $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
     ?>
         
@@ -39,7 +38,7 @@ require_once '../header.php';
                 <tr>
                     <th>Titel</th>
                     <th>Afdeling</th>
-                    <th>deadline</th>
+                    <th>Deadline</th>
                     <th></th>
                 </tr>
                 <?php foreach ($taken as $taak): ?>
@@ -49,15 +48,12 @@ require_once '../header.php';
                         <td><?php echo $taak['deadline']; ?></td>
                         <td><a href="/task/edit.php?id=<?php echo $taak['id']?>"><button>Bewerk</button></a></td>
                     </tr>
-                    
                 <?php endforeach; ?>
             </table>
         </main>
 
     <?php require_once '../footer.php'; 
-    
-                }
-                elseif (empty($_SESSION['user_id'])); {
-                    echo "Je bent niet ingelogd";
-                }?>
-                
+} else {
+    echo "Je bent niet ingelogd";
+}
+?>
