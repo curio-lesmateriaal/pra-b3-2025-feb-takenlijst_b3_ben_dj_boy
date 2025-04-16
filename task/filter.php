@@ -2,10 +2,10 @@
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../login/login.php");
-   exit;
+    exit;
 }
 
- if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
     $user_id = intval($_SESSION['user_id']); // veilig integer maken
 
     require_once '../backend/config.php';
@@ -13,10 +13,9 @@ if (!isset($_SESSION['user_id'])) {
     require_once '../head.php';
     require_once '../header.php';
 
-    // Haal het ID van de ingelogde gebruiker op
-    $user_id = intval($_SESSION['user_id']);
+    $ttaken = []; // Lege array voor taken
 
-    $ttaken = []; // Lege array voor taken met status 'Doing'
+    $filter = $_GET['filter'] ?? '';
     ?>
 
     <div class="Filter">
@@ -35,18 +34,12 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 
     <?php
-
-    $filter = $_GET['filter'] ?? '';
-
     if (!empty($filter)) {
-        // Haal alle taken van de geselecteerde afdeling op
-        $query = "SELECT * FROM taken WHERE afdeling = :filter ORDER BY deadline ASC";
-        $statement = $conn->prepare($query);
-        $statement->execute(['filter' => $filter]);
-        $taken = $statement->fetchAll(PDO::FETCH_ASSOC); // (optioneel, wordt hier niet gebruikt)
-
-        // Haal enkel de taken op die 'Doing' zijn van die afdeling
-        $tquery = "SELECT * FROM taken WHERE status = 'Doing' AND afdeling = :filter ORDER BY deadline ASC";
+        // Haal alle taken van deze afdeling met status To-do, Doing of Done
+        $tquery = "SELECT * FROM taken 
+                   WHERE status IN ('To-do', 'Doing', 'Done') 
+                   AND afdeling = :filter 
+                   ORDER BY deadline ASC";
         $tstatement = $conn->prepare($tquery);
         $tstatement->execute(['filter' => $filter]);
         $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
@@ -62,6 +55,7 @@ if (!isset($_SESSION['user_id'])) {
                     <th>Titel</th>
                     <th>Afdeling</th>
                     <th>Deadline</th>
+                    <th>Status</th>
                     <th>Bewerken</th>
                 </tr>
                 <?php foreach ($ttaken as $taak): ?>
@@ -69,6 +63,7 @@ if (!isset($_SESSION['user_id'])) {
                         <td><?php echo htmlspecialchars($taak['titel']); ?></td>
                         <td><?php echo htmlspecialchars($taak['afdeling']); ?></td>
                         <td><?php echo htmlspecialchars($taak['deadline']); ?></td>
+                        <td><?php echo htmlspecialchars($taak['status']); ?></td>
                         <td>
                             <a href="/task/edit.php?id=<?php echo $taak['id']; ?>">
                                 <button>Bewerk</button>
@@ -78,12 +73,12 @@ if (!isset($_SESSION['user_id'])) {
                 <?php endforeach; ?>
             </table>
         <?php else: ?>
-            <p>Geen taken gevonden met status 'Doing' voor afdeling: <strong><?php echo htmlspecialchars($filter); ?></strong>.</p>
+            <p>Geen taken gevonden voor afdeling: <strong><?php echo htmlspecialchars($filter); ?></strong>.</p>
         <?php endif; ?>
     </main>
 
     <?php require_once '../footer.php'; 
-}
-elseif (empty($_SESSION['user_id'])); {
+} else {
     echo "Je bent niet ingelogd";
-}?>
+}
+?>
