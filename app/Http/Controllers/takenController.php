@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
@@ -11,30 +12,34 @@ if (isset($_POST['action'])) {
         $afdeling = $_POST['afdeling'];
         $deadline = $_POST['deadline'];
         $status = $_POST['status'];
+        $user_id = $_SESSION['id']; 
 
         // 1. Verbinding
         require_once '../../../backend/conn.php';
 
-        // 2. Query
-        $query = "INSERT INTO taken (titel, beschrijving, afdeling, deadline, status) 
-                  VALUES(:titel, :beschrijving, :afdeling, :deadline, :status)";
+        // 2. Query 
+        $query = "INSERT INTO taken (titel, beschrijving, afdeling, deadline, status, user) 
+                  VALUES(:titel, :beschrijving, :afdeling, :deadline, :status, :user)";
 
         // 3. Prepare
         $statement = $conn->prepare($query);
 
         // 4. Execute
-        ($statement->execute([
+        $statement->execute([
             ":titel" => $titel,
             ":beschrijving" => $beschrijving,
             ":afdeling" => $afdeling,
             ":deadline" => $deadline,
-            ":status" => $status
-        ])); 
-            header("Location: ../../../index.php?msg=Melding opgeslagen");
-            exit;
-            
+            ":status" => $status,
+            ":user" => $user_id
+        ]); 
+
+        header("Location: ../../../index.php?msg=Melding opgeslagen");
+        exit;
     }
-} else {
+}
+
+else {
     echo "Geen actie gespecificeerd.";
     exit;
 }
