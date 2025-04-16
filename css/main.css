@@ -1,4 +1,4 @@
-/* Algemene body stijlen */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -6,15 +6,14 @@ body {
   padding: 0;
 }
 
-/* De wrapper zorgt voor het centreren van de content */
+
 .wrapper {
-  max-width: 100%; /* Beperk de breedte van de content */
-  margin: 0 auto; /* Centreer de wrapper horizontaal */
+  max-width: 100%; 
+  margin: 0 auto; 
 }
 
-/* Header styling */
 header {
-  background: linear-gradient(50deg, #0073e6, #00c6ff); /* Mooie blauwgradiënt */
+  background: linear-gradient(50deg, #0073e6, #00c6ff);
   color: white;
   padding: 15px;
   text-align: center;
@@ -24,18 +23,18 @@ header {
   background-color: rgb(134, 202, 255);
   padding: 20px;
   display: flex;
-  justify-content: center; /* Zentert de knoppen */
-  gap: 15px; /* Ruimte tussen de knoppen */
-  border-radius: 10px; /* Mooie afgeronde hoeken */
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); /* Schaduw voor een 3D-effect */
+  justify-content: center; 
+  gap: 15px; 
+  border-radius: 10px; 
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .buttonsNav a {
-  text-decoration: none; /* Verwijdert de onderlijn van de links */
+  text-decoration: none; 
 }
 
 .buttonsNav button {
-  background-color: #0073e6; /* Mooi blauw */
+  background-color: #0073e6;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -46,17 +45,17 @@ header {
 }
 
 .buttonsNav button:hover {
-  background-color: #005bb5; /* Donkerder blauw bij hover */
-  transform: scale(1.05); /* Kleine zoom in effect */
+  background-color: #005bb5;
+  transform: scale(1.05); 
 }
 
 .ultimateFun {
   padding-top: 10%;
   padding-bottom: 10%;
-  background-image: image('/logo.png'); /* Vervang met jouw pad */
-  background-size: contain; /* Zorgt ervoor dat de afbeelding de hele achtergrond bedekt */
-  background-position: center; /* Centered de afbeelding */
-  background-repeat: no-repeat; /* Voorkomt herhaling */
+  background-image: image('/logo.png'); 
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
   width: auto;
   background-color: #dceeff;
 }
@@ -74,10 +73,10 @@ header {
 .welkom {
   font-size: 30px;
   font-weight: bold;
-  color: #000000; /* Zwarte kleur */
+  color: #000000; 
   display: block;
-  text-align: center; /* Centreer de "Welkom bij" tekst */
-  margin-bottom: 5px; /* Voeg ruimte onder de "Welkom bij" tekst */
+  text-align: center; 
+  margin-bottom: 5px; 
 }
 
 .task-manager {
@@ -85,16 +84,16 @@ header {
   border-radius: 15px;
   font-size: 36px;
   font-weight: bold;
-  color: #000000; /* Geef 'Task Manager' een kleur */
-  text-align: center; /* Centreer de "Task Manager" tekst */
-  margin-top: 10px; /* Voeg meer ruimte toe boven de "Task Manager" tekst */
+  color: #000000;
+  text-align: center; 
+  margin-top: 10px; 
 }
 
 .Beheer {
   font-size: 20px;
 }
 
-/* Tabelstijl */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -103,7 +102,7 @@ table {
   overflow: hidden;
 }
 
-/* Stijlen voor de tabelkop */
+
 th {
   background-color: #0073e6;
   color: white;
@@ -111,7 +110,7 @@ th {
   text-align: left;
 }
 
-/* Stijlen voor de tabelcellen */
+
 td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
@@ -119,23 +118,23 @@ td {
   text-align: left;
 }
 
-/* Afwisselende rij-kleuren */
+
 tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Hover effect voor rijen */
+
 tr:hover {
   background-color: #e0f0ff;
   transition: 0.3s;
 }
 
-/* Status kolom in kleur */
+
 td:last-child {
   font-weight: bold;
 }
 
-/* Formulier container */
+
 form {
   background: white;
   padding: 20px;
@@ -148,14 +147,14 @@ form {
   width: 97%;
 }
 
-/* Stijl voor labels */
+
 label {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
 }
 
-/* Stijl voor inputvelden en select dropdowns */
+
 input[type="text"],
 input[type="date"],
 select,
@@ -168,7 +167,7 @@ textarea {
   transition: border 0.3s ease-in-out;
 }
 
-/* Hover en focus effecten voor inputvelden */
+
 input:focus,
 select:focus,
 textarea:focus {
@@ -177,13 +176,13 @@ textarea:focus {
   box-shadow: 0 0 5px rgba(0, 115, 230, 0.5);
 }
 
-/* Specifieke stijl voor textarea */
+
 textarea {
   resize: vertical;
   min-height: 100px;
 }
 
-/* Stijl voor de submit-knop */
+
 input[type="submit"] {
   background-color: #0073e6;
   color: white;
@@ -195,7 +194,7 @@ input[type="submit"] {
   transition: 0.3s ease-in-out;
 }
 
-/* Hover effect op de knop */
+
 input[type="submit"]:hover {
   background-color: #005bb5;
   transform: scale(1.05);
