@@ -114,19 +114,9 @@ if ($action == "filter") {
     $filter = $_POST['filter'] ?? '';
 
     //terug naar index
-    header("location: ../../../task/index.php?filter=$filter");
+    header("location: ../../../task/filter.php?filter=$filter");
     exit;
 
 }
 
-if ($action == "filter-done") {
-    
-    //variabelen vullen
-    $filter = $_POST['filter'] ?? '';
-
-    //terug naar index
-    header("location: ../../../task/done.php?filter=$filter");
-    exit;
-
-}
 ?>
