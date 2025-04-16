@@ -17,6 +17,7 @@
                     <a href="/task/create.php"><button>Nieuwe Taak</button></a>
                     <a href="/task/done.php"><button>Voltooide taken</button></a>
                     <a href="/task/filter.php"><button>Filter</button></a>
+                    <a href="/task/my.php"><button>eigen taken</button></a>
                 </nav>
             </div>
             <header>

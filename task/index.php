@@ -5,6 +5,8 @@ require_once '../head.php';
 
 require_once '../header.php';
 
+if (isset($_SESSION['user_id'])) {
+    $user_id = intval($_SESSION['user_id']); // veilig integer maken
 
 //1. Verbinding
 require_once '../backend/conn.php';
@@ -72,4 +74,10 @@ $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
         </table>
     </main>
 
-<?php require_once '../footer.php'; ?>
+<?php require_once '../footer.php'; 
+}
+
+elseif (empty($_SESSION['user_id'])); {
+    echo "Je bent niet ingelogd";
+}
+?>
