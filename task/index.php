@@ -84,3 +84,7 @@ if (isset($_SESSION['user_id'])) {
     <?php require_once '../footer.php'; 
     }
 
+elseif (empty($_SESSION['user_id'])); {
+    echo "Je bent niet ingelogd";
+}
+?>
