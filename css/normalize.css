@@ -1,7 +1,7 @@
 
 
 html {
-  background-color: blue;
+  background-color: #0073e6;
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -216,5 +216,3 @@ template {
 [hidden] {
   display: none;
 }
-
- 
