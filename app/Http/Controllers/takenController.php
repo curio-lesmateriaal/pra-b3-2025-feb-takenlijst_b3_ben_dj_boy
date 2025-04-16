@@ -12,7 +12,6 @@ if (isset($_POST['action'])) {
         $afdeling = $_POST['afdeling'];
         $deadline = $_POST['deadline'];
         $status = $_POST['status'];
-        $user_id = $_SESSION['id']; 
 
         // 1. Verbinding
         require_once '../../../backend/conn.php';
@@ -31,7 +30,7 @@ if (isset($_POST['action'])) {
             ":afdeling" => $afdeling,
             ":deadline" => $deadline,
             ":status" => $status,
-            ":user" => $user_id
+            ":user" => $_SESSION['user_id']
         ]); 
 
         header("Location: ../../../index.php?msg=Melding opgeslagen");
