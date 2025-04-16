@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user_name'] = $user['name']; // Zorg dat de kolom 'name' bestaat
 
     // 8. Redirect naar de hoofdpagina
-    header("Location: ../index.php");
+    header("Location: ../task/index.php");
     exit;
 
 } else {

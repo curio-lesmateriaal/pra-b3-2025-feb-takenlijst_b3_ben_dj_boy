@@ -17,83 +17,93 @@ if (!isset($_SESSION['user_id'])) {
 <?php require_once '../header.php'; ?>
 
 <?php
-    if (!isset($_GET['id']) || empty($_GET['id'])) {
-        die("Geen ID opgegeven.");
-    }
-    
-    $id = (int) $_GET['id'];
-    
-
-    //1. Verbinding
-    require_once '../backend/conn.php';
-
-    //2. Query
-    $query = "SELECT * FROM taken where id = :id";
-
-    //3. Prepare
-    $statement = $conn->prepare($query);
-
-    //4. Execute
-    $statement->execute([
-        ":id" => $id
-    ]);
-
-    //5. fetch
-    $taken = $statement->fetch(PDO::FETCH_ASSOC);
-?>
-
-    <form action="<?php echo $base_url; ?>../app/Http/Controllers/takenController.php" method="POST">
-        <input type="hidden" name="action" value="edit">
-        <input type="hidden" name="id" value="<?php echo $taken['id']; ?>">
-
-        <div class="form-group">
-            <label for="titel">Titel: </label>
-            <input type="text" name="titel" id="titel" class="form-input" value="<?php echo $taken['titel']; ?>">
-        </div>
+    if (isset($_SESSION['user_id'])) {
+        $user_id = intval($_SESSION['user_id']); // veilig integer maken
 
 
-        <div class="form-group">
-            <label for="afdeling">Afdeling: </label>
-            <select name="afdeling">
-                <option value="personeel" <?php echo ($taken['afdeling'] == "personeel") ? 'selected' : ''; ?>>Personeel</option>
-                <option value="horeca" <?php echo ($taken['afdeling'] == "horeca") ? 'selected' : ''; ?>>Horeca</option>
-                <option value="techniek" <?php echo ($taken['afdeling'] == "techniek") ? 'selected' : ''; ?>>Techniek</option>
-                <option value="inkoop" <?php echo ($taken['afdeling'] == "inkoop") ? 'selected' : ''; ?>>Inkoop</option>
-                <option value="klantenservice" <?php echo ($taken['afdeling'] == "klantenservice") ? 'selected' : ''; ?>>Klantenservice</option>
-                <option value="groen" <?php echo ($taken['afdeling'] == "groen") ? 'selected' : ''; ?>>Groen</option>
-            </select>
-        </div>
+        if (!isset($_GET['id']) || empty($_GET['id'])) {
+            die("Geen ID opgegeven.");
+        }
+        
+        $id = (int) $_GET['id'];
+        
 
+        //1. Verbinding
+        require_once '../backend/conn.php';
 
-        <div class="form-group">
-            <label for="deadline">Deadline: </label>
-            <input type="date" name="deadline" id="deadline" class="form-input" value="<?php echo $taken['deadline']; ?>">
-        </div>
+        //2. Query
+        $query = "SELECT * FROM taken where id = :id";
 
+        //3. Prepare
+        $statement = $conn->prepare($query);
 
-        <div class="form-group">
-            <label for="beschrijving">Beschrijving: </label>
-            <textarea name="beschrijving" rows="6" style="width: 600px;"><?php echo $taken['beschrijving']; ?></textarea>
-        </div>
+        //4. Execute
+        $statement->execute([
+            ":id" => $id
+        ]);
 
-        <div class="form-group">
-            <label for="status">Status: </label>
-            <select name="status">
-                <option value="To-do" <?php echo ($taken['status'] == "To-do") ? 'selected' : ''; ?>>To-do</option>
-                <option value="Doing" <?php echo ($taken['status'] == "Doing") ? 'selected' : ''; ?>>Doing</option>
-                <option value="Done" <?php echo ($taken['status'] == "Done") ? 'selected' : ''; ?>>Done</option>
-            </select>
-        </div>
+        //5. fetch
+        $taken = $statement->fetch(PDO::FETCH_ASSOC);
+    ?>
 
-        <div class="form-group">
-            <input type="submit" value="aanpassen">
-        </div>
-    </form>
-
-    <form action="<?php echo $base_url; ?>/app/Http/Controllers/takenController.php" method="POST">
-            <input type="hidden" name="action" value="delete">
+        <form action="<?php echo $base_url; ?>../app/Http/Controllers/takenController.php" method="POST">
+            <input type="hidden" name="action" value="edit">
             <input type="hidden" name="id" value="<?php echo $taken['id']; ?>">
-            <input type="submit" value="Verwijderen">
+
+            <div class="form-group">
+                <label for="titel">Titel: </label>
+                <input type="text" name="titel" id="titel" class="form-input" value="<?php echo $taken['titel']; ?>">
+            </div>
+
+
+            <div class="form-group">
+                <label for="afdeling">Afdeling: </label>
+                <select name="afdeling">
+                    <option value="personeel" <?php echo ($taken['afdeling'] == "personeel") ? 'selected' : ''; ?>>Personeel</option>
+                    <option value="horeca" <?php echo ($taken['afdeling'] == "horeca") ? 'selected' : ''; ?>>Horeca</option>
+                    <option value="techniek" <?php echo ($taken['afdeling'] == "techniek") ? 'selected' : ''; ?>>Techniek</option>
+                    <option value="inkoop" <?php echo ($taken['afdeling'] == "inkoop") ? 'selected' : ''; ?>>Inkoop</option>
+                    <option value="klantenservice" <?php echo ($taken['afdeling'] == "klantenservice") ? 'selected' : ''; ?>>Klantenservice</option>
+                    <option value="groen" <?php echo ($taken['afdeling'] == "groen") ? 'selected' : ''; ?>>Groen</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="deadline">Deadline: </label>
+                <input type="date" name="deadline" id="deadline" class="form-input" value="<?php echo $taken['deadline']; ?>">
+            </div>
+
+
+            <div class="form-group">
+                <label for="beschrijving">Beschrijving: </label>
+                <textarea name="beschrijving" rows="6" style="width: 600px;"><?php echo $taken['beschrijving']; ?></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status: </label>
+                <select name="status">
+                    <option value="To-do" <?php echo ($taken['status'] == "To-do") ? 'selected' : ''; ?>>To-do</option>
+                    <option value="Doing" <?php echo ($taken['status'] == "Doing") ? 'selected' : ''; ?>>Doing</option>
+                    <option value="Done" <?php echo ($taken['status'] == "Done") ? 'selected' : ''; ?>>Done</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="aanpassen">
+            </div>
         </form>
 
-    <?php require_once '../footer.php'; ?>
+        <form action="<?php echo $base_url; ?>/app/Http/Controllers/takenController.php" method="POST">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="id" value="<?php echo $taken['id']; ?>">
+                <input type="submit" value="Verwijderen">
+            </form>
+
+        <?php require_once '../footer.php';
+    
+}
+
+elseif (empty($_SESSION['user_id'])); {
+    echo "Je bent niet ingelogd";
+}?>
