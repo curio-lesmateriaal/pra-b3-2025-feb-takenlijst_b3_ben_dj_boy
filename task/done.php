@@ -14,6 +14,8 @@ require_once '../head.php';
 require_once '../header.php';
 
 
+
+
 //1. Verbinding
 require_once '../backend/conn.php';
 
@@ -28,9 +30,6 @@ $statement->execute();
 
 //5. fetch
 $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-
 ?>
     
     <main>

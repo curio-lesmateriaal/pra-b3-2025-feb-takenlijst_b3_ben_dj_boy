@@ -39,8 +39,8 @@ $tstatement->execute();
 
 //5. fetch
 $ttaken = $tstatement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
-    
     <main>
         <h2>To-Do</h2>
         <table>

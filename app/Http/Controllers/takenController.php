@@ -106,4 +106,17 @@ if ($action == "delete") {
         header("Location: ../../../index.php?msg=Melding is verwijderd!");
         exit;
 }
+
+
+if ($action == "filter") {
+    
+    //variabelen vullen
+    $filter = $_POST['filter'] ?? '';
+
+    //terug naar index
+    header("location: ../../../task/filter.php?filter=$filter");
+    exit;
+
+}
+
 ?>
