@@ -58,7 +58,7 @@ if (isset($_SESSION['user_id'])) {
     </form>
 
     <?php require_once '../footer.php'; 
-} elseif (empty($_SESSION['user_id'])) { // Verwijder puntkomma hier
+} elseif (empty($_SESSION['user_id'])) {
     echo "Je bent niet ingelogd";
 }
 ?>
