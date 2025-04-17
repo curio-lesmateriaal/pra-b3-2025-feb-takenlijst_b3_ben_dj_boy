@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $statement->execute(['username' => $username]);
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-
+ 
     if (!$user) {
         die("Gebruiker bestaat niet.");
     }
